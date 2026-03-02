@@ -2,7 +2,7 @@
 
 A modern hotel management web application that helps manage bookings, guests, rooms, and payments efficiently.
 
-Built with React, and a scalable component architecture.
+Built with React,Supabase, and a scalable component architecture.
 
 <!-- Currently, two official plugins are available:
 
