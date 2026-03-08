@@ -37,7 +37,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route index element={<Navigate replace to="home" />} />
-            <Route path="/home" element={<HomePage />} />
+            <Route path="home" element={<HomePage />} />
             <Route path="about" element={<About />} />
             <Route path="rooms" element={<Rooms />} />
             <Route path="room-booking/:cabinId" element={<BookingPage />} />
