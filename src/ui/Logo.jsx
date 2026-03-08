@@ -5,21 +5,24 @@ import PropTypes from "prop-types";
 const StyledLogo = styled.div`
   transition: all 0.3s ease;
   cursor: ${(props) => (props.size === "small" ? "pointer" : "default")};
+  display: flex;
+  justify-content: ${(props) =>
+    props.size === "large" ? "center" : "flex-start"};
 
   @media (max-width: 1024px) {
     overflow: hidden;
-    min-width: ${(props) => (props.size === "small" ? "7rem" : "4rem")};
+    min-width: ${(props) => (props.size === "small" ? "7rem" : "15rem")};
   }
 `;
 
 const Img = styled.img`
-  width: ${(props) => (props.size === "small" ? "7rem" : "9.6rem")};
+  width: ${(props) => (props.size === "small" ? "7rem" : "15rem")};
 
   transition: width 0.3s ease;
   object-fit: contain;
 
   @media (max-width: 1024px) {
-    width: ${(props) => (props.size === "small" ? "7rem" : "4rem")};
+    width: ${(props) => (props.size === "small" ? "7rem" : "15rem")};
   }
 `;
 

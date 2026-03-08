@@ -9,14 +9,14 @@ const LoginLayout = styled.main`
   grid-template-columns: 48rem;
   align-content: center;
   justify-content: center;
-  gap: 3.2rem;
-  background-color: var(--color-grey-100);
+  /* gap: 3.2rem; */
+  background-color: var(--color-grey-300);
 `;
 
 function Login() {
   return (
     <LoginLayout>
-      <Logo />
+      <Logo size="large" />
       <Heading as="h4">Log in to your account</Heading>
       <LoginForm />
     </LoginLayout>
