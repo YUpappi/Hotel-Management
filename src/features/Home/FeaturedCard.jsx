@@ -12,7 +12,7 @@ function FeatureCard({ icon, title, desc }) {
       className="w-[90%] bg-gray-100 border border-gray-300 rounded-[20px] shadow-lg p-6 text-center transition duration-300"
     >
       <div className="text-amber-700 mb-4 flex justify-center">{icon}</div>
-      <h3 className="text-gray-900 text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] mb-2 font-serif text-amber-700 ">
+      <h3 className="text-gray-900 text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] mb-2 font-serif font-bold">
         {title}
       </h3>
       <p className="text-gray-600 text-[1.5rem] opacity-90 leading-relaxed mb-5">
