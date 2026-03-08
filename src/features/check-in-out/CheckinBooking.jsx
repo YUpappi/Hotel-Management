@@ -70,7 +70,10 @@ function CheckinBooking() {
         },
       });
     } else {
-      checkIn({ bookingId, breakfast: {} });
+      checkIn({
+        bookingId,
+        breakfast: {},
+      });
     }
   }
 

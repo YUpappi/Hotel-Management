@@ -1,45 +1,58 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+
 :root {
+
+
 
 
 &,&.light-mode{
     /* Grey */
-  --color-grey-0: #fff;
-  --color-grey-50: #f9fafb;
-  --color-grey-100: #f3f4f6;
-  --color-grey-200: #e5e7eb;
-  --color-grey-300: #d1d5db;
-  --color-grey-400: #9ca3af;
-  --color-grey-500: #6b7280;
-  --color-grey-600: #4b5563;
-  --color-grey-700: #374151;
-  --color-grey-800: #1f2937;
-  --color-grey-900: #111827;
+  --color-grey-0: #f3f4f6;
+  --color-grey-50: #fafaf9;
+  --color-grey-100: #f5f5f4;
+  --color-grey-200: #e7e5e4;
+  --color-grey-300: #d6d3d1;
+  --color-grey-400: #a8a29e;
+  --color-grey-500: #78716b;
+  --color-grey-600: #57534e;
+  --color-grey-700: #44403c;
+  --color-grey-800: #292522;
+  --color-grey-900: #1c1917;
 
-  --color-blue-100: #e0f2fe;
-  --color-blue-700: #0369a1;
-  --color-green-100: #dcfce7;
-  --color-green-700: #15803d;
-  --color-yellow-100: #fef9c3;
-  --color-yellow-700: #a16207;
-  --color-silver-100: #e5e7eb;
-  --color-silver-700: #374151;
-  --color-indigo-100: #e0e7ff;
-  --color-indigo-700: #4338ca;
+  --color-blue-100: #d4f1f4;
+  --color-blue-700: #0f5f7a;
+  --color-green-100: #d4f1dc;
+  --color-green-700: #0d7a3a;
+  --color-yellow-100: #fef9e3;
+  --color-yellow-700: #b8860b;
+  --color-silver-100: #f5f5f4;
+  --color-silver-700: #44403c;
+  --color-indigo-100: #d4e1f7;
+  --color-indigo-700: #1f3a8a;
 
   --color-red-100: #fee2e2;
   --color-red-700: #b91c1c;
   --color-red-800: #991b1b;
 
-  --backdrop-color: rgba(255, 255, 255, 0.1);
+  /* Brand/Button Colors - Light Mode */
+  --color-brand-50: #fef3c7;
+  --color-brand-100: #fde68a;
+  --color-brand-200: #fcd34d;
+  --color-brand-500: #d97706;
+  --color-brand-600: #b8860b;
+  --color-brand-700: #92400e;
+  --color-brand-800: #78350f;
+  --color-brand-900: #451a03;
+
+  --backdrop-color: rgba(0, 0, 0, 0.1);
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
 
-    /* For dark mode */
+    /* For light mode */
   --image-grayscale: 0;
   --image-opacity: 100%;
 }
@@ -51,43 +64,45 @@ const GlobalStyles = createGlobalStyle`
   &.dark-mode{
   //FOR DARK MODE
 
---color-grey-0: #18212f;
+--color-grey-0: #1f2937;
 --color-grey-50: #111827;
---color-grey-100: #1f2937;
---color-grey-200: #374151;
---color-grey-300: #4b5563;
---color-grey-400: #6b7280;
---color-grey-500: #9ca3af;
---color-grey-600: #d1d5db;
---color-grey-700: #e5e7eb;
---color-grey-800: #f3f4f6;
---color-grey-900: #f9fafb;
+--color-grey-100: #1a2332;
+--color-grey-200: #2d3e4f;
+--color-grey-300: #3d4e5f;
+--color-grey-400: #4d5e6f;
+--color-grey-500: #6b7d8f;
+--color-grey-600: #8b9daf;
+--color-grey-700: #b0bcc9;
+--color-grey-800: #d0d8e0;
+--color-grey-900: #e8ecf0;
 
---color-blue-100: #075985;
---color-blue-700: #e0f2fe;
---color-green-100: #166534;
---color-green-700: #dcfce7;
---color-yellow-100: #854d0e;
---color-yellow-700: #fef9c3;
---color-silver-100: #374151;
---color-silver-700: #f3f4f6;
---color-indigo-100: #3730a3;
---color-indigo-700: #e0e7ff;
+--color-blue-100: #0f3a52;
+--color-blue-700: #7dbcc4;
+--color-green-100: #0d4a2a;
+--color-green-700: #68d394;
+--color-yellow-100: #8b6f47;
+--color-yellow-700: #daa520;
+--color-silver-100: #2d3e4f;
+--color-silver-700: #b0bcc9;
+--color-indigo-100: #1a2a52;
+--color-indigo-700: #a4c4e0;
 
---color-red-100: #fee2e2;
---color-red-700: #b91c1c;
---color-red-800: #991b1b;
+--color-red-100: #7a1a1a;
+--color-red-700: #f8cdcd;
+--color-red-800: #fde0e0;
+
+/* Brand/Button Colors - Dark Mode */
+--color-brand-50: #1a1410;
+--color-brand-100: #2d1f0f;
+--color-brand-200: #3d2817;
+--color-brand-500: #daa520;
+--color-brand-600: #f0ad4e;
+--color-brand-700: #ffc966;
+--color-brand-800: #ffd966;
+--color-brand-900: #ffe680;
 }
 
-  /* Indigo */
-  --color-brand-50: #eef2ff;
-  --color-brand-100: #e0e7ff;
-  --color-brand-200: #c7d2fe;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
-  --color-brand-800: #3730a3;
-  --color-brand-900: #312e81;
+
 
   --border-radius-tiny: 3px;
   --border-radius-sm: 5px;
@@ -110,16 +125,45 @@ const GlobalStyles = createGlobalStyle`
 
 html {
   font-size: 62.5%;
+
+  @media (max-width: 1024px) {
+    font-size: 56.25%;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 50%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 43.75%;
+  }
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  color: var(--color-grey-700);
-
+  color: #1c1917;
+  background: #f3f4f6;
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;
   line-height: 1.5;
   font-size: 1.6rem;
+
+  @media (max-width: 1024px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+
+  &.dark-mode {
+    color: #e8ecf0;
+    background: #111827;
+  }
 }
 
 input,

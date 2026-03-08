@@ -15,8 +15,9 @@ function useCheckingIn() {
       }),
     onSuccess: (data) => {
       toast.success(`Booking for #${data.id} was checked in successfully`);
-      queryClient.invalidateQueries({ active: true });
-      navigate("/");
+      queryClient.invalidateQueries({ queryKey: ["stays"] });
+      queryClient.invalidateQueries({ queryKey: ["bookings"] });
+      navigate("/bookings");
     },
     onError: (error) => toast.error(error.message),
   });

@@ -13,9 +13,8 @@ import {
 import { NoActivity } from "../check-in-out/TodayActivity";
 
 const ChartBox = styled.div`
-  /* Box */
-  background-color: var(--color-grey-0);
-  border: 1px solid var(--color-grey-100);
+  background-color: var(--color-grey-50);
+  border: 1px solid var(--color-grey-200);
   border-radius: var(--border-radius-md);
   flex: 1 1 300px;
   padding: 2.4rem 3.2rem;

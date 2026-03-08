@@ -1,5 +1,5 @@
 import { PAGE_SIZE } from "../ui/Pagination";
-import { getToday } from "../utils/helpers";
+import { getToday, subtractDates } from "../utils/helpers";
 import supabase from "./supabase";
 
 // export async function getBookings() {
@@ -63,21 +63,101 @@ export async function getBookings({ filter, sortBy, page }) {
   return { data, count };
 }
 
-export const createBooking = async (newBooking) => {
+// export const createBooking = async (newBooking) => {
+//   const { data, error } = await supabase
+//     .from("bookings")
+//     .insert([newBooking])
+//     .select()
+//     .single();
+
+//   if (error) {
+//     console.error(error);
+//     throw new Error("Booking could not be created");
+//   }
+
+//   return data;
+// };
+
+export const createBooking = async (formData) => {
+  // 1️⃣ Check if guest already exists by email
+  const { data: existingGuest, error: fetchError } = await supabase
+    .from("guest")
+    .select("id")
+    .eq("email", formData.email)
+    .maybeSingle();
+
+  if (fetchError) throw new Error(fetchError.message);
+
+  let guestId;
+  //  If guest exists, use existing guestId
+  if (existingGuest) {
+    guestId = existingGuest.id;
+  } else {
+    //  Otherwise create new guest
+    const { data: newGuest, error: guestError } = await supabase
+      .from("guest")
+      .insert([
+        {
+          fullName: formData.fullName,
+          email: formData.email,
+          nationality: formData.nationality,
+          nationalID: formData.nationalID,
+          countryFlag: null,
+        },
+      ])
+      .select()
+      .single();
+
+    if (guestError) throw new Error(guestError.message);
+
+    guestId = newGuest.id;
+  }
+
+  // 2️ Get cabin price from DB
+  const { data: cabin, error: cabinError } = await supabase
+    .from("Cabins")
+    .select("regularPrice")
+    .eq("id", formData.cabinId)
+    .single();
+
+  if (cabinError) throw new Error(cabinError.message);
+
+  // Calculate number of nights
+  const numNigths = subtractDates(formData.endDate, formData.startDate);
+
+  if (numNigths <= 0)
+    throw new Error("Checkout date must be after checkin date");
+
+  //  Calculate total price
+  const totalPrice = numNigths * cabin.regularPrice;
+
+  // 5️ Insert booking
   const { data, error } = await supabase
     .from("bookings")
-    .insert([newBooking])
+    .insert([
+      {
+        startDate: formData.startDate,
+        endDate: formData.endDate,
+        numNigths,
+        numGuests: formData.numGuests,
+        status: "unconfirmed",
+        hasBreakfast: false,
+        isPaid: false,
+        extrasPrice: 0,
+        totalPrice: totalPrice,
+        cabinPrice: totalPrice,
+        observations: formData.observations || null,
+        cabinId: formData.cabinId,
+        guestId: guestId,
+      },
+    ])
     .select()
     .single();
 
-  if (error) {
-    console.error(error);
-    throw new Error("Booking could not be created");
-  }
+  if (error) throw new Error(error.message);
 
   return data;
 };
-
 export async function getBooking(id) {
   const { data, error } = await supabase
     .from("bookings")
@@ -113,10 +193,8 @@ export async function getBookingsAfterDate(date) {
 export async function getStaysAfterDate(date) {
   const { data, error } = await supabase
     .from("bookings")
-    // .select('*')
     .select("*, guest(fullName)")
-    .gte("startDate", date)
-    .lte("startDate", getToday());
+    .gte("created_at", date);
 
   if (error) {
     console.error(error);
@@ -128,22 +206,21 @@ export async function getStaysAfterDate(date) {
 
 // Activity means that there is a check in or a check out today
 export async function getStaysTodayActivity() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const dd = String(today.getDate()).padStart(2, "0");
+  const dateStr = `${yyyy}-${mm}-${dd}`;
+
   const { data, error } = await supabase
     .from("bookings")
     .select("*, guest(fullName, nationality, countryFlag)")
     .or(
-      `and(status.eq.unconfirmed,startDate.eq.${getToday()}),and(status.eq.checked-in,endDate.eq.${getToday()})`,
+      `and(status.eq.unconfirmed,startDate.eq.${dateStr}),and(status.eq.checked-in,endDate.eq.${dateStr})`,
     )
     .order("created_at");
 
-  // Equivalent to this. But by querying this, we only download the data we actually need, otherwise we would need ALL bookings ever created
-  // (stay.status === 'unconfirmed' && isToday(new Date(stay.startDate))) ||
-  // (stay.status === 'checked-in' && isToday(new Date(stay.endDate)))
-
-  if (error) {
-    console.error(error);
-    throw new Error("Bookings could not get loaded");
-  }
+  if (error) throw new Error("Bookings could not get loaded");
   return data;
 }
 
@@ -159,6 +236,7 @@ export async function updateBooking(id, obj) {
     console.error(error);
     throw new Error("Booking could not be updated");
   }
+
   return data;
 }
 

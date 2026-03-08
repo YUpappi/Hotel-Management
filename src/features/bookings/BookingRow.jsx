@@ -56,15 +56,15 @@ function BookingRow({ booking }) {
     hasBreakfast = false,
     totalPrice,
     status,
-    guest: { fullName: guestName, email },
+    guest,
     Cabins: { name: cabinName },
     // created_at,
     // numGuests,
   } = booking;
 
   //
-  // const guestName = guest?.fullName ?? "Unknown guest";
-  // const email = guest?.email ?? "—";
+  const guestName = guest?.fullName ?? "Unknown guest";
+  const email = guest?.email ?? "—";
   // const cabinName = Cabins?.name ?? "Unknown cabin";
 
   //

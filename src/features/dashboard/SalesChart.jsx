@@ -17,10 +17,12 @@ import Heading from "../../ui/Heading";
 const StyledSalesChart = styled(DashboardBox)`
   grid-column: 1 / -1;
 
+  border: 1px solid var(--color-grey-100);
+
   /* Hack to change grid line colors */
   & .recharts-cartesian-grid-horizontal line,
   & .recharts-cartesian-grid-vertical line {
-    stroke: var(--color-grey-300);
+    stroke: var(--color-grey-200);
   }
 `;
 
@@ -121,7 +123,7 @@ function SalesChart({ bookings, numDays }) {
             type="monotone"
             stroke={colors.extrasSales.stroke}
             fill={colors.extrasSales.fill}
-            dataKey="totalSales"
+            dataKey="extrasSales"
             strokeWidth="2"
             name="Extra-sales"
             unit="N"

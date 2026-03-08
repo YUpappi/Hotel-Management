@@ -4,6 +4,10 @@ const ButtonIcon = styled.button`
   background: none;
   border: none;
   padding: 0.6rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--border-radius-sm);
   transition: all 0.2s;
 
@@ -14,6 +18,7 @@ const ButtonIcon = styled.button`
   & svg {
     width: 2.2rem;
     height: 2.2rem;
+    text-align: center;
     color: var(--color-brand-600);
   }
 `;

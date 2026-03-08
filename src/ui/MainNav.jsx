@@ -12,6 +12,10 @@ const NavList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+
+  @media (max-width: 1024px) {
+    gap: 0.4rem;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -43,6 +47,7 @@ const StyledNavLink = styled(NavLink)`
     height: 2.4rem;
     color: var(--color-grey-400);
     transition: all 0.3s;
+    flex-shrink: 0;
   }
 
   &:hover svg,
@@ -50,6 +55,26 @@ const StyledNavLink = styled(NavLink)`
   &.active:link svg,
   &.active:visited svg {
     color: var(--color-brand-600);
+  }
+
+  & span {
+    white-space: nowrap;
+    transition:
+      opacity 0.3s ease,
+      width 0.3s ease;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 1.2rem 0.8rem;
+    gap: 0.3rem;
+    justify-content: center;
+
+    & span {
+      opacity: 0;
+      width: 0;
+      overflow: hidden;
+      display: none;
+    }
   }
 `;
 function MainNav() {

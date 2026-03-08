@@ -2,8 +2,8 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const StyledStat = styled.div`
-  background-color: var(--color-grey-0);
-  border: 1px solid var(--color-grey-100);
+  background-color: var(--color-grey-50);
+  border: 1px solid var(--color-grey-200);
   border-radius: var(--border-radius-md);
   padding: 1.6rem;
   display: flex;

@@ -5,11 +5,12 @@ import Row from "../../ui/Row";
 import useTodayActivity from "./useTodayActivity";
 import Spinner from "../../ui/Spinner";
 import TodayItem from "./TodayItem";
+import PropTypes from "prop-types";
 
 const StyledToday = styled.div`
   /* Box */
-  background-color: var(--color-grey-0);
-  border: 1px solid var(--color-grey-100);
+  background-color: var(--color-grey-50);
+  border: 1px solid var(--color-grey-200);
   border-radius: var(--border-radius-md);
   flex: 1 1 300px;
   padding: 3.2rem;
@@ -46,7 +47,7 @@ function TodayActivity() {
         <Heading as="h2">Today</Heading>
       </Row>
       {!isLoading ? (
-        activities > 0 ? (
+        activities?.length > 0 ? (
           <TodayList>
             {activities.map((activity) => (
               <TodayItem activity={activity} key={activity.id} />
@@ -63,3 +64,7 @@ function TodayActivity() {
 }
 
 export default TodayActivity;
+
+TodayActivity.propTypes = {
+  activities: PropTypes.array,
+};

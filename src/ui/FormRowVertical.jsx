@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Error, Label } from "../features/cabins/CreateCabinForm";
+
 import PropTypes from "prop-types";
+import { Error, Label } from "./FormRow2";
 
 const FormRow3 = styled.div`
   display: flex;

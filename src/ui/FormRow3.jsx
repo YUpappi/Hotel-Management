@@ -1,5 +1,5 @@
-import { FormRow, Label } from "../features/cabins/CreateCabinForm";
 import PropTypes from "prop-types";
+import { FormRow, Label } from "./FormRow2";
 
 export function FormRow3({ label, id, children }) {
   return (

@@ -16,6 +16,10 @@ import Booking from "./pages/Booking.jsx";
 import Checkin from "./pages/Checkin.jsx";
 import ProtectedRoute from "./features/authentication/ProtectedRoute.jsx";
 import DarkModeProvider from "./context/DarkmodeContext.jsx";
+import HomePage from "./features/Home/HomePage.jsx";
+import About from "./pages/About.jsx";
+import Rooms from "./pages/Rooms.jsx";
+import BookingPage from "./pages/BookingPage.jsx";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,6 +36,13 @@ function App() {
         <GlobalStyles />
         <BrowserRouter>
           <Routes>
+            <Route index element={<Navigate replace to="home" />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="about" element={<About />} />
+            <Route path="rooms" element={<Rooms />} />
+            <Route path="room-booking/:cabinId" element={<BookingPage />} />
+            <Route path="room-booking" element={<BookingPage />} />
+
             <Route
               element={
                 <ProtectedRoute>
@@ -39,7 +50,6 @@ function App() {
                 </ProtectedRoute>
               }
             >
-              <Route index element={<Navigate replace to="login" />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="bookings" element={<Bookings />} />
               <Route path="bookings/:bookingId" element={<Booking />} />

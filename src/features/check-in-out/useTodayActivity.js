@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getStaysTodayActivity } from "../../services/apiBookings";
 
 function useTodayActivity() {
-  const { data: activities, isLoading } = useQuery({
+  const { data: activities = [], isLoading } = useQuery({
     queryFn: getStaysTodayActivity,
     queryKey: ["today-activity"],
   });

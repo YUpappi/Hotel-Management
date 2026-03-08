@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import Tag from "../../ui/Tag";
-import { Flag } from "../../ui/Flag";
+// import { Flag } from "../../ui/Flag";
 import Button from "../../ui/Button";
 import { Link } from "react-router-dom";
 import CheckoutButton from "./CheckoutButton";
 
 const StyledTodayItem = styled.li`
-  display: grid;
-  grid-template-columns: 9rem 2rem 1fr 7rem 9rem;
+  display: flex;
+  justify-content: space-between;
+
   gap: 1.2rem;
   align-items: center;
 
@@ -26,23 +27,28 @@ const Guest = styled.div`
 `;
 
 function TodayItem({ activity }) {
-  const { status, id, guest, numNigths } = activity;
+  const { status, id: bookingId, guest, numNigths } = activity;
 
   return (
     <StyledTodayItem>
       {status === "unconfirmed" && <Tag type="green">Arriving</Tag>}
       {status === "checked-in" && <Tag type="blue">Departing</Tag>}
-      <Flag src={guest.countryFlag} alt={`flag of ${guest.country}`} />
+      {/* <Flag src={guest.countryFlag} alt={`flag of ${guest.country}`} /> */}
       <Guest>{guest.fullName}</Guest>
       <div>{numNigths} nights</div>
       {status === "unconfirmed" && (
-        <Button size="small" variation="primary" as={Link} to={`checkin/${id}`}>
+        <Button
+          size="small"
+          variation="primary"
+          as={Link}
+          to={`/checkin/${bookingId}`}
+        >
           check in
         </Button>
       )}
 
       {status === "checked-in" && (
-        <CheckoutButton size="small" bookingId={id}>
+        <CheckoutButton size="small" bookingId={bookingId}>
           Check out
         </CheckoutButton>
       )}
@@ -53,5 +59,12 @@ function TodayItem({ activity }) {
 export default TodayItem;
 
 TodayItem.propTypes = {
-  activity: PropTypes.array,
+  activity: PropTypes.shape({
+    status: PropTypes.string,
+    id: PropTypes.number,
+    guest: PropTypes.shape({
+      fullName: PropTypes.string,
+    }),
+    numNigths: PropTypes.number,
+  }).isRequired,
 };
