@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import useDarkMode from "../hooks/useDarkMode";
+// import useDarkMode from "../hooks/useDarkMode";
 import PropTypes from "prop-types";
 
 const StyledLogo = styled.div`
@@ -27,8 +27,8 @@ const Img = styled.img`
 `;
 
 function Logo({ size = "large", onClick }) {
-  const { isDarkmode } = useDarkMode();
-  const src = isDarkmode ? "/logo-dark.png" : "/hotels-logo.png";
+  // const { isDarkmode } = useDarkMode();
+  const src = "/hotels-logo.png";
   return (
     <StyledLogo size={size}>
       <Img src={src} alt="Logo" size={size} onClick={onClick} />

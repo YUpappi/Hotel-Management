@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import HeaderMenu from "./HeaderMenu";
 import UserAvatar from "../features/authentication/UserAvatar";
-import DarkmodeToggle from "./DarkmodeToggle";
+// import DarkmodeToggle from "./DarkmodeToggle";
 
 const StyledHeader = styled.header`
   background-color: var(--color-grey-0);
@@ -19,7 +19,7 @@ const Header = () => {
     <StyledHeader>
       <UserAvatar />
       <HeaderMenu />
-      <DarkmodeToggle />
+      {/* <DarkmodeToggle /> */}
     </StyledHeader>
   );
 };
