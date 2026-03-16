@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import NavItem from "./NavItem";
-import DarkmodeToggle from "../../ui/DarkmodeToggle";
+// import DarkmodeToggle from "../../ui/DarkmodeToggle";
 import {
   HiBadgeCheck,
   HiCalendar,
@@ -67,7 +67,7 @@ function Navbar() {
         >
           <HiUser size={16} /> Login
         </button>
-        <DarkmodeToggle />
+        {/* <DarkmodeToggle /> */}
       </div>
       {/* Mobile Burger */}
       <button
@@ -116,7 +116,7 @@ function Navbar() {
           >
             <HiUser size={16} /> Login
           </button>
-          <DarkmodeToggle />
+          {/* <DarkmodeToggle /> */}
         </div>
       )}
     </nav>

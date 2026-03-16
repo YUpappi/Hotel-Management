@@ -4,7 +4,7 @@ import BookRooms from "./BookRooms";
 function RoomCard({ cabin }) {
   const { id, image, name, regularPrice, maxCapacity } = cabin;
   return (
-    <div className="bg-gray-100 border border-gray-300 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl w-full   mx-auto transition duration-300">
+    <div className="bg-gray-100 border border-gray-300 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl w-full mx-auto transition duration-300">
       {/* Image */}
       <div className="h-[250px] overflow-hidden">
         <img

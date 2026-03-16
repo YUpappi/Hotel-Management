@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
 
 &,&.light-mode{
     /* Grey */
-  --color-grey-0: #f3f4f6;
+  --color-grey-0: #ffffff;
   --color-grey-50: #fafaf9;
   --color-grey-100: #f5f5f4;
   --color-grey-200: #e7e5e4;
@@ -36,23 +36,13 @@ const GlobalStyles = createGlobalStyle`
   --color-red-700: #b91c1c;
   --color-red-800: #991b1b;
 
-  /* Brand/Button Colors - Light Mode */
-  --color-brand-50: #fef3c7;
-  --color-brand-100: #fde68a;
-  --color-brand-200: #fcd34d;
-  --color-brand-500: #d97706;
-  --color-brand-600: #b8860b;
-  --color-brand-700: #92400e;
-  --color-brand-800: #78350f;
-  --color-brand-900: #451a03;
-
   --backdrop-color: rgba(0, 0, 0, 0.1);
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
 
-    /* For light mode */
+    /* For dark mode */
   --image-grayscale: 0;
   --image-opacity: 100%;
 }
@@ -90,19 +80,17 @@ const GlobalStyles = createGlobalStyle`
 --color-red-100: #7a1a1a;
 --color-red-700: #f8cdcd;
 --color-red-800: #fde0e0;
-
-/* Brand/Button Colors - Dark Mode */
---color-brand-50: #1a1410;
---color-brand-100: #2d1f0f;
---color-brand-200: #3d2817;
---color-brand-500: #daa520;
---color-brand-600: #f0ad4e;
---color-brand-700: #ffc966;
---color-brand-800: #ffd966;
---color-brand-900: #ffe680;
 }
 
-
+  /* Indigo */
+  --color-brand-50: #fef3c7;
+  --color-brand-100: #fde68a;
+  --color-brand-200: #fcd34d;
+  --color-brand-500: #d97706;
+  --color-brand-600: #b8860b;
+  --color-brand-700: #92400e;
+  --color-brand-800: #78350f;
+  --color-brand-900: #451a03;
 
   --border-radius-tiny: 3px;
   --border-radius-sm: 5px;
@@ -124,25 +112,25 @@ const GlobalStyles = createGlobalStyle`
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 89.5%;
 
   @media (max-width: 1024px) {
-    font-size: 56.25%;
+    font-size: 62.25%;
   }
 
   @media (max-width: 768px) {
-    font-size: 50%;
+    font-size: 56%;
   }
 
   @media (max-width: 480px) {
-    font-size: 43.75%;
+    font-size: 50.75%;
   }
 }
 
 body {
   font-family: "Poppins", sans-serif;
   color: #1c1917;
-  background: #f3f4f6;
+  background: #ffffff;
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;
   line-height: 1.5;
