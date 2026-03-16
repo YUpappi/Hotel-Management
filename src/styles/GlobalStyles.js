@@ -112,18 +112,18 @@ const GlobalStyles = createGlobalStyle`
 }
 
 html {
-  font-size: 89.5%;
+  font-size: 65.5%;
 
   @media (max-width: 1024px) {
-    font-size: 62.25%;
+    font-size: 58.25%;
   }
 
   @media (max-width: 768px) {
-    font-size: 56%;
+    font-size: 52%;
   }
 
   @media (max-width: 480px) {
-    font-size: 50.75%;
+    font-size: 45.75%;
   }
 }
 
